@@ -47,6 +47,6 @@ build/
 
 ### Environment / Config Files ###
 .env
-application-*.yml
-application-*.yaml
-application-*.properties
+#application-*.yml
+#application-*.yaml
+#application-*.properties
