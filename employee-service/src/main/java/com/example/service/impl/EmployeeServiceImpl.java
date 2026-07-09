@@ -2,6 +2,10 @@ package com.example.service.impl;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.example.model.Employee;
@@ -35,5 +39,27 @@ public class EmployeeServiceImpl implements EmployeeService {
 		
 		return employeeRepository.findAll();
 	}
+
+	@Override
+	public Page<Employee> getAllEmployees(int pageNumber, int pageSize) {
+		
+		Pageable pageable = PageRequest.of(pageNumber, pageSize);
+		
+		Page<Employee> page = employeeRepository.findAll(pageable);
+		return page;
+	}
+
+	@Override
+	public Page<Employee> getAllEmployees(int pageNumber, int pageSize, String sortBy, String sortDir) {
+		
+		
+		Sort sort = sortDir.equalsIgnoreCase("asc") ? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending() ;
+		
+		Pageable pageable = PageRequest.of(pageNumber, pageSize, sort);
+		
+		return employeeRepository.findAll(pageable);
+	}
+
+	
 
 }
