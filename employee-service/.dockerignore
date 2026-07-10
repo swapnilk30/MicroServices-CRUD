@@ -1,0 +1,7 @@
+target/*.original
+.git
+.idea
+.settings
+.classpath
+.project
+.vscode
