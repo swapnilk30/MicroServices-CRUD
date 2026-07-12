@@ -13,7 +13,7 @@ import lombok.Setter;
 @Builder
 public class MerchantDto {
 	
-	private int merchant_id;
+	private int merchantId;
 
 	private String merchant_name;
 

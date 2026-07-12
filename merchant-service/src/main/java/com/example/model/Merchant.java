@@ -1,5 +1,6 @@
 package com.example.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -17,7 +18,8 @@ import lombok.Setter;
 public class Merchant {
 	
 	@Id
-	private int merchant_id;
+	@Column(name = "merchant_id")
+	private int merchantId;
 	
 	private String merchant_name;
 

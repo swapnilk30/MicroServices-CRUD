@@ -2,5 +2,28 @@ spring:
   application:
     name: merchant-service
 
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/merchant_service
+    username: root
+    password: Skmania@1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  batch:
+    jdbc:
+      initialize-schema: always
+
 server:
   port: 9091
+  
+# Spring Batch Configuration
+# Actuator Endpoints
+#management.endpoints.web.exposure.include=health,info,batch
+ 
