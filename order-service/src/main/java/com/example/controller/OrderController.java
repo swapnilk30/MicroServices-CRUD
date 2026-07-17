@@ -1,8 +1,9 @@
 package com.example.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.dto.OrderEvent;
+import com.example.service.KafkaProducerService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -10,12 +11,16 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/orders")
 @Slf4j
 public class OrderController {
-	
-	
-	@GetMapping
-	public String getOrders() {
-		log.info("OrderController.getOrders()");
-		return "welcome to order service";
+
+	@Autowired
+	private KafkaProducerService kafkaProducerService;
+
+	@PostMapping
+	public void produceOrderEvent(@RequestBody OrderEvent orderEvent){
+		log.info("Producing order event: {}", orderEvent);
+		kafkaProducerService.publishOrderEvent(orderEvent);
+		log.info("Order event published successfully");
+
 	}
 
 }
