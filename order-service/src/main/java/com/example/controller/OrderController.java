@@ -15,12 +15,19 @@ public class OrderController {
 	@Autowired
 	private KafkaProducerService kafkaProducerService;
 
+
 	@PostMapping
 	public void produceOrderEvent(@RequestBody OrderEvent orderEvent){
 		log.info("Producing order event: {}", orderEvent);
 		kafkaProducerService.publishOrderEvent(orderEvent);
 		log.info("Order event published successfully");
 
+	}
+
+	@GetMapping
+	public String getOrderDetails(){
+		log.info("Getting order details");
+		return "Order details";
 	}
 
 }
