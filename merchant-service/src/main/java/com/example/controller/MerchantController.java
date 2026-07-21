@@ -31,4 +31,6 @@ public class MerchantController {
 
 		return ResponseEntity.ok("Batch Started");
 	}
+
+
 }

@@ -16,5 +16,6 @@ public interface EmployeeService {
 	
 	Page<Employee> getAllEmployees(int pageNumber,int pageSize,String sortBy ,String sortDir);
 
+	Employee getEmployeeById(Long id);
 
 }

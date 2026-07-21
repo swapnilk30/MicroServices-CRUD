@@ -60,6 +60,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return employeeRepository.findAll(pageable);
 	}
 
-	
+	@Override
+	public Employee getEmployeeById(Long id) {
+		Employee employee = employeeRepository.findById(id)
+				.orElseThrow(() -> new RuntimeException("Employee not found !! "));
+		return employee;
+	}
+
 
 }

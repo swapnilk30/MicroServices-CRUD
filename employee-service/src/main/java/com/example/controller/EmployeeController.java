@@ -2,19 +2,17 @@ package com.example.controller;
 
 import java.util.List;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.model.Employee;
 import com.example.service.EmployeeService;
 
 @RestController
 @RequestMapping("/employees")
+@Slf4j
 public class EmployeeController {
 	
 	private final EmployeeService employeeService;
@@ -53,7 +51,13 @@ public class EmployeeController {
 			){
 		return employeeService.getAllEmployees(pageNumber, pageSize,sortBy,sortDir);
 	}
-	
+
+	@GetMapping("/{id}")
+	public ResponseEntity<Employee> getEmployeeById(@PathVariable Long id){
+
+		log.info("EmployeeController.getEmployeeById()");
+		return ResponseEntity.ok(employeeService.getEmployeeById(id));
+	}
 
 
 }
