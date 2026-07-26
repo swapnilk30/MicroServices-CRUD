@@ -7,7 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.model.Employee;
+import com.example.primary.entity.Employee;
 import com.example.service.EmployeeService;
 
 @RestController

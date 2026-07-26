@@ -2,14 +2,15 @@ package com.example.service.impl;
 
 import java.util.List;
 
+import com.example.primary.repository.EmployeeRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import com.example.model.Employee;
-import com.example.repository.EmployeeRepository;
+import com.example.primary.entity.Employee;
+
 import com.example.service.EmployeeService;
 
 @Service
