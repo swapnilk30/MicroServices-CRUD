@@ -19,9 +19,13 @@ public class Employee {
     private Long empId;
     private String firstName;
     private String lastName;
-    private String department;
+    //private String department;
     private Double salary;
 
     @Column(unique = true)
     private String email;
+
+    @ManyToOne
+    @JoinColumn(name = "department_id")
+    private Department department;
 }
