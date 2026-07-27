@@ -59,5 +59,4 @@ public class EmployeeController {
 		return ResponseEntity.ok(employeeService.getEmployeeById(id));
 	}
 
-
 }
