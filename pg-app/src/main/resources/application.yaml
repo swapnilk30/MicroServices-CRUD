@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: pg-app
+
+  profiles:
+    active:
+    - dev
+    
+server:
+  port: 9090
